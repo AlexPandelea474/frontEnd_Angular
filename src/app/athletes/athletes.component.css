@@ -1,15 +1,19 @@
 table {
-    width: 100%;
+    width:100%;
+    max-width: 1200px;
+    margin: auto;
     border-collapse: collapse;
   }
   
   th, td {
+    padding: 5px;
+    font-size: 14px;
     border: 1px solid #ddd;
-    padding: 8px;
     text-align: left;
   }
   
   th {
+    
     background-color: #4CAF50;
     color: white;
   }
@@ -38,12 +42,12 @@ table {
   button {
     background-color: #4CAF50; /* Green background */
     color: white;
-    padding: 10px 15px;
+    padding: 5px 10px;
     margin: 10px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     display: block; /* Makes the button a block element */
     width: 200px; /* Fixed width */
     margin: 20px auto; /* Center the button */

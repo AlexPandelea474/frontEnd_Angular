@@ -12,11 +12,33 @@
   </tr>
   <tr *ngFor="let athlete of athletes">
     <td>{{ athlete.id }}</td>
-    <td>{{ athlete.firstName }}</td>
-    <td>{{ athlete.lastName }}</td>
-    <td>{{ athlete.gender }}</td>
-    <td>{{ athlete.age }}</td>
-    <td><button (click)="deleteAthlete(athlete.id)">Delete</button></td>
+
+    <td>
+      <span *ngIf="!athlete.isEditing">{{ athlete.firstName }}</span>
+      <input *ngIf="athlete.isEditing" type="text" [(ngModel)]="athlete.firstName">
+    </td>
+
+    <td>
+      <span *ngIf="!athlete.isEditing">{{ athlete.lastName }}</span>
+      <input *ngIf="athlete.isEditing" type="text" [(ngModel)]="athlete.lastName">
+    </td>
+
+    <td>
+      <span *ngIf="!athlete.isEditing">{{ athlete.gender }}</span>
+      <input *ngIf="athlete.isEditing" type="text" [(ngModel)]="athlete.gender">
+    </td>
+    
+    <td>
+      <span *ngIf="!athlete.isEditing">{{ athlete.age }}</span>
+      <input *ngIf="athlete.isEditing" type="number" [(ngModel)]="athlete.age">
+    </td>
+    
+    <td>
+      <button *ngIf="!athlete.isEditing" (click)="editAthlete(athlete)">Edit</button>
+      <button *ngIf="athlete.isEditing" (click)="saveAthlete(athlete)">Save</button>
+      <button (click)="deleteAthlete(athlete.id)">Delete</button>
+    </td>
+   
   </tr>
 </table>
 

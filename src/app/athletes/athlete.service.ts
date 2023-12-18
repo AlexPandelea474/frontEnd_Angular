@@ -20,5 +20,9 @@ export class AthleteService {
 
   deleteAthlete(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
+
+  }
+  updateAthlete(athlete: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${athlete.id}`, athlete);
   }
 }

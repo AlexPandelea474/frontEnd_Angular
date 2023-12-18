@@ -1,0 +1,40 @@
+<h2>Athletes</h2>
+
+
+<table style="margin-top: 20px;">
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let athlete of athletes">
+    <td>{{ athlete.id }}</td>
+    <td>{{ athlete.firstName }}</td>
+    <td>{{ athlete.lastName }}</td>
+    <td>{{ athlete.gender }}</td>
+    <td>{{ athlete.age }}</td>
+    <td><button (click)="deleteAthlete(athlete.id)">Delete</button></td>
+  </tr>
+</table>
+
+<button (click)="isAddingAthlete = true" style="margin-top: 20px;">Add New Athlete</button>
+
+<div *ngIf="isAddingAthlete" style="margin-top: 20px;">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="newAthlete.firstName" placeholder="First Name" required>
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="newAthlete.lastName" placeholder="Last Name" required>
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="newAthlete.gender" placeholder="Gender" required>
+  </div>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="newAthlete.age" placeholder="Age" required>
+  </div>
+  <button (click)="addAthlete()">Save Athlete</button>
+</div>
+>
